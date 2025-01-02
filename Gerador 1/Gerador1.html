@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Etiquetas</title>
+    <link rel="stylesheet" href="/Gerador 1/Gerador1.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./Gerador1.js" defer></script>
+</head>
+<body>
+    <main>
+        <a class="voltar" href="/index.html">
+            <button>Voltar</button>
+        </a>
+
+        <div class="container">
+            <section class="formulario">
+                <form action="">
+                    <div class="descricao">
+                        <label for="descricao">Coloque a Descrição do produto</label>
+                        <input id="descricao" maxlength="61" type="text">
+                    </div>
+                
+                    <div class="separacao">
+                        <div class="imagem">
+                            <label for="imagemUpload" class="upload-label">
+                                <i class='bx bxs-cloud-upload'></i>
+                                <input type="file" id="imagemUpload" class="upload-input" accept="image/*">
+                            </label>
+                        </div>
+                        
+                        <div class="fornecedor">
+                            <select name="fornecedores" id="fornecedores">
+                                <option value="Tramontina">Tramontina</option>
+                                <option value="Amanco">Amanco</option>
+                                <option value="Astra">Astra</option>
+                                <option value="Topfusion">Topfusion</option>
+                                <option value="Fortlev">Fortlev</option>
+                                <option value="Inpol">Inpol</option>
+                                <option value="Elgin">Elgin</option>
+                                <option value="Corr-plastik">Corr Plastik</option>
+                                <option value="Emmeti">Emmeti</option>
+                                <option value="Krona">Krona</option>
+                                <option value="Remadi">Remadi</option>
+                                <option value="Amanco">Amanco</option>
+                                <option value="Astra">Astra</option>
+                                <option value="Topfusion">Topfusion</option>
+                                <option value="Tramontina">Tramontina</option>
+                                <option value="Fortlev">Fortlev</option>
+                                <option value="Inpol">Inpol</option>
+                                <option value="Elgin">Elgin</option>
+                                <option value="Corr-plastik">Corr Plastik</option>
+                                <option value="Emmeti">Emmeti</option>
+                                <option value="Krona">Krona</option>
+                                <option value="Remadi">Remadi</option>
+                                <option value="Stamplac">Stamplac</option>
+                                <option value="Blux">Blux</option>
+                                <option value="Margirius">Margirius</option>
+                                <option value="Clamper">Clamper</option>
+                                <option value="Atacado">Atacado</option>
+                                <option value="Condu-pro">Condupro</option>
+                                <option value="Siemens">Siemens</option>
+                                <option value="Steck">Steck</option>
+                                <option value="Jng">Jng</option>
+                                <option value="Legrand">Legrand</option>
+                                <option value="Dispan">Dispan</option>
+                                <option value="Iott">Iott</option>
+                                <option value="Suprens">Suprens</option>
+                                <option value="Deca">Deca</option>
+                                <option value="Multimarca">Multimarca</option>
+                                <option value="Latão">Latão</option>
+                                <option value="Inox">Inox</option>
+                                <option value="Cobre">Cobre</option>
+                                <option value="Wale">Wale</option>
+                                <option value="Perlex">Perlex</option>
+                                <option value="Lorenzetti">Lorenzetti</option>
+                                <option value="Weg">Weg</option>
+                                <option value="Genebre">Genebre</option>
+                                <option value="Mrv">Mrv</option>
+                                <option value="Mga">Mga</option>
+                                <option value="Estrela">Estrela</option>
+                                <option value="Garden">Garden</option>
+                                <option value="Intelbras">Intelbras</option>
+                                <option value="Engesul">Engesul</option>
+                                <option value="Qualitronix">Qualitronix</option>
+                                <option value="Foxlux">Foxlux</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="previewEtiqueta">
+                        <label for="previewEtiqueta">Preview da Etiqueta</label>
+                        <div id="previewEtiquetaContainer" class="etiqueta-container">
+                            <img id="previewEtiqueta" src="/assets/images/OPÇÕES 1/Tramontina.png" alt="Preview da Etiqueta">
+                            <div id="descricaoEtiqueta" class="descricao-etiqueta">Descrição do Produto</div>
+                            <img id="uploadedImage" class="uploaded-image" src="" alt="Imagem Carregada" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <button class="enviar">Adicionar Etiqueta</button>
+                </form>
+            </section>
+
+            <section class="A4">
+                <div class="folha">
+                    <div class="previewA4" id="previewA4">
+                        <div id="etiqueta1" class="etiqueta-box"></div>
+                        <div id="etiqueta2" class="etiqueta-box"></div>
+                        <div id="etiqueta3" class="etiqueta-box"></div>
+                        <div id="etiqueta4" class="etiqueta-box"></div>
+                        <div id="etiqueta5" class="etiqueta-box"></div>
+                        <div id="etiqueta6" class="etiqueta-box"></div>
+                        <div id="etiqueta7" class="etiqueta-box"></div>
+                        <div id="etiqueta8" class="etiqueta-box"></div>
+                        <div id="etiqueta9" class="etiqueta-box"></div>
+                        <div id="etiqueta10" class="etiqueta-box"></div>
+                    </div>
+                </div>
+                <button id="baixarPDF">Baixar PDF</button>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #00427a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Ajuste a largura máxima conforme necessário */
+}
+
+.voltar button {
+  width: 80px;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: none;
+  color: #00427a;
+  font-weight: bolder;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 0px 20px 0px 0px;
+}
+
+.voltar button:hover {
+  background-color: rgb(255, 153, 0);
+}
+
+.previewA4 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center; /* Centraliza o grid dentro do contêiner pai */
+  justify-items: center; /* Centraliza os itens dentro do grid */
+}
+
+.etiqueta-box {
+  width: 200px;
+  height: 100px;
+  display: inline-block; /* Alinha os quadrados horizontalmente */
+  vertical-align: top; /* Alinha os quadrados no topo */
+}
+
+#etiqueta1,
+#etiqueta2,
+#etiqueta3,
+#etiqueta4,
+#etiqueta5,
+#etiqueta6,
+#etiqueta7,
+#etiqueta8,
+#etiqueta9,
+#etiqueta10 {
+  width: 200px;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.formulario {
+  justify-content: center;
+  text-align: center;
+}
+
+.folha {
+  margin-bottom: 1rem;
+}
+
+.A4 {
+  width: 50%;
+}
+
+.formulario,
+.A4 {
+  /* width: 50%; */
+  background-color: white;
+  border-radius: 20px;
+  height: 90vh;
+  margin: 0 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.descricao {
+  display: flex;
+  flex-direction: column;
+}
+
+.descricao select {
+  font-size: 16px; /* Ajuste o tamanho da fonte para ser consistente */
+  font-weight: bold;
+  height: 40px;
+  margin: 10px auto;
+  border: 3px solid #0069c5;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.formulario label {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.etiqueta-container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.descricao-etiqueta {
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  width: 300px;
+  font-size: 150px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.enviar {
+  background-color: #00427a;
+  height: 2.4rem;
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
+.formulario .previewEtiqueta {
+  margin: 0px 0px 20px 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.formulario .previewEtiqueta img {
+  width: 100%;
+  margin-top: 1rem;
+  max-width: 400px;
+}
+
+.formulario button:hover {
+  background-color: #0088ff;
+}
+
+.A4 {
+  background-color: white;
+  border-radius: 20px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.A4 button {
+  width: 100%;
+  max-width: 400px; /* Limita a largura máxima do botão de baixar PDF */
+  height: 40px;
+  background-color: #00427a;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.A4 button:hover {
+  background-color: #0088ff;
+}
+
+.folha {
+  width: 90%;
+  height: 100%;
+}
+
+.previewEtiqueta img {
+  width: 100%;
+  max-width: 400px; /* Limita a largura máxima da imagem de preview */
+}
+
+.previewEtiqueta h2 {
+  margin-bottom: 15px;
+}
+
+.previewA4 {
+  height: 100%;
+}
+
+.etiqueta-content {
+  position: relative;
+}
+
+/* Estilizando o botão de deletar dentro de qualquer contêiner com a classe 'etiqueta-content' */
+.etiqueta-content .delete-btn {
+  background-color: transparent; /* Exemplo de cor de fundo */
+  color: red; /* Exemplo de cor do texto */
+  border: none; /* Remover borda */
+  position: absolute;
+  left: 88px;
+  top: -1px;
+  cursor: pointer; /* Cursor pointer para indicar que é clicável */
+  font-size: 15px;
+}
+
+.etiqueta-content .delete-btn:hover {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Adicione mais regras conforme necessário */
+
+#etiqueta-content button {
+  width: 20px;
+  height: 20px;
+  color: #00427a;
+  background-color: transparent;
+  position: absolute;
+  border-radius: 0px;
+  top: 11px;
+  left: 177px;
+}
+
+#deletar button:hover {
+  background-color: transparent;
+}

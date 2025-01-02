@@ -1,0 +1,404 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #00427a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  main {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Ajuste a largura máxima conforme necessário */
+  }
+  
+  .voltar button {
+    width: 80px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    color: #00427a;
+    font-weight: bolder;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0px 20px 0px 0px;
+  }
+  
+  .voltar button:hover {
+    background-color: rgb(255, 153, 0);
+  }
+
+  .previewA4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center; /* Centraliza o grid dentro do contêiner pai */
+    justify-items: center; /* Centraliza os itens dentro do grid */
+}
+
+
+  .etiqueta-box {
+    width: 200px;
+    height: 100px;
+    display: inline-block; /* Alinha os quadrados horizontalmente */
+    vertical-align: top; /* Alinha os quadrados no topo */
+}
+
+
+  #etiqueta1, #etiqueta2, #etiqueta3, #etiqueta4, #etiqueta5, #etiqueta6, #etiqueta7, #etiqueta8, #etiqueta9, #etiqueta10{
+    width: 200px;
+    height: 100%;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+
+  .formulario {
+    justify-content: center;
+    text-align: center;
+  }
+
+
+  .folha {
+    margin-bottom: 1rem;
+  }
+
+  .A4 {
+    width: 50%;
+  }
+  
+  .formulario,
+  .A4 {
+    /* width: 50%; */
+    background-color: white;
+    border-radius: 20px;
+    height: 90vh;
+    margin: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+  }
+
+  
+  .descricao input {
+    margin: 10px 0;
+  }
+
+  .formulario input {
+    height: 40px;
+    border-radius: 20px;
+    width: 100%;
+    border: 3px solid #00427a;
+    padding: 0 10px;
+  }
+
+  .formulario label {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  #fornecedores {
+    margin: 0;
+  }
+
+  .separacao {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .fornecedor select {
+    margin-top: 10px;
+    height: 40px;
+    width: 210px;
+    border-radius: 20px;
+    border: 2px solid #00427a; /* Borda azul semelhante ao select */
+    background-color: transparent; /* Fundo transparente */
+    color: #00427a; /* Cor do texto azul para combinar com a borda */
+    text-align: center; /* Alinha o texto no centro */
+    font-weight: bold; /* Destaca o texto */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s, color 0.3s; /* Transição suave para hover */
+  }
+
+  .imagem input {
+    margin-top: 10px;
+    height: 40px;
+    background-color: #00427a;
+    border-radius: 20px;
+    width: 200px;
+    border: none;
+    color: white;
+  }
+
+  .upload-label i {
+    font-size: 30px;
+  }
+
+  .custom-select {
+    position: relative;
+    display: inline-block;
+    width: 210px;
+}
+
+.custom-select select {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid #00427a;
+    background-color: transparent;
+    color: #00427a;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    appearance: none; /* Remove a aparência padrão do select */
+    padding: 0 1rem;
+}
+
+.custom-select::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #00427a;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.etiqueta-container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.uploaded-image {
+  position: absolute;
+  top: 20px; /* Ajuste conforme necessário */
+  left: 20px; /* Ajuste conforme necessário */
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+
+.descricao-etiqueta {
+  display: flex;
+  position: absolute;
+  top: 32px; /* Ajuste conforme necessário */
+  left: 25.5%; /* Ajuste conforme necessário */
+  text-align: center;
+  height: 86px;
+  width: 120px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 5px;
+  align-items: center; /* Centraliza o texto verticalmente */
+  justify-content: center; /* Centraliza o texto horizontalmente (opcional) */
+}
+
+img#uploadedImage {
+  position: absolute;
+  top: 32px;
+  left: 29px;
+  padding: 5px;
+  width: 64px;
+  height: 58px;
+}
+
+.custom-select .custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #00427a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1;
+}
+
+.custom-select .custom-options .option {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.upload-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00427a;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  width: 230px; /* Ajuste conforme necessário */
+  height: 40px; /* Ajuste conforme necessário */
+  border: none;
+  font-weight: bold;
+}
+
+.upload-label:hover {
+  background-color: #0088ff;
+}
+
+.upload-input {
+  display: none; /* Oculta o input file padrão */
+}
+
+
+.custom-select .custom-options .option:last-child {
+    border-bottom: none;
+}
+
+.custom-select .custom-options .option img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.custom-select .custom-options .option:hover {
+    background-color: #f1f1f1;
+}
+
+
+  .enviar {
+    background-color: #00427a;
+    height: 2.4rem;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .formulario .previewEtiqueta {
+    margin: 40px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .formulario .previewEtiqueta img {
+    width: 100%;
+    margin-top: 1rem;
+    max-width: 400px;
+  }
+  
+  .formulario button:hover {
+    background-color: #0088ff;
+  }
+  
+  .A4 {
+    background-color: white;
+    border-radius: 20px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .A4 button {
+    width: 100%;
+    max-width: 400px; /* Limita a largura máxima do botão de baixar PDF */
+    height: 40px;
+    background-color: #00427a;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .A4 button:hover {
+    background-color: #0088ff;
+  }
+
+  .folha {
+    width: 90%;
+    height: 100%;
+  }
+  
+  .previewEtiqueta img {
+    width: 100%;
+    max-width: 400px; /* Limita a largura máxima da imagem de preview */
+  }
+
+  .previewEtiqueta h2 {
+    margin-bottom: 15px;
+  }
+  
+
+  .previewA4 {
+    height: 100%;
+  }
+  
+  .etiqueta-content {
+    position: relative;
+}
+
+/* Estilizando o botão de deletar dentro de qualquer contêiner com a classe 'etiqueta-content' */
+.etiqueta-content .delete-btn {
+  background-color: transparent; /* Exemplo de cor de fundo */
+  color: red; /* Exemplo de cor do texto */
+  border: none; /* Remover borda */
+  position: absolute;
+  left: 91px;
+  top: -2.5px;
+  cursor: pointer; /* Cursor pointer para indicar que é clicável */
+  font-size: 15px;
+}
+
+.etiqueta-content .delete-btn:hover {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Adicione mais regras conforme necessário */
+
+
+
+#etiqueta-content button {
+  width: 20px;
+  height: 20px;
+  color: #00427a;
+  background-color: transparent;
+  position: absolute;
+  border-radius: 0px;
+  top: 11px;
+  left: 177px;
+}
+
+#deletar button:hover {
+  background-color: transparent;
+}

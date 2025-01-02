@@ -1,0 +1,180 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+.imagem-link {
+  text-align: center;
+}
+
+.imagem {
+  background-color: #00427a;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.imagem img {
+  width: 80%;
+  max-width: 300px;
+  margin: 10px 0;
+}
+
+.imagem h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
+.imagem p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.imagem button {
+  background-color: rgb(255, 153, 0);
+  border-radius: 30px;
+  border: none;
+  padding: 0.5rem 2rem;
+  color: rgba(0, 0, 0, 0.904);
+  font-weight: bolder;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.imagem button:hover {
+  background-color: rgb(238, 255, 0);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario .modelos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 550px;
+}
+
+.formulario h2 {
+  color: rgba(0, 0, 0, 0.904);
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.formulario p {
+  color: #000000e7;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden; /* Esconde as imagens fora da área visível */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#prev-btn, #next-btn {
+  background: none;
+  z-index: 1;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  color: #00427a;
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Corrige o posicionamento no centro vertical */
+}
+
+#prev-btn {
+  left: 10px; /* Ajusta a posição do botão anterior à esquerda */
+}
+
+#next-btn {
+  right: 10px; /* Ajusta a posição do botão próximo à direita */
+}
+
+#prev-btn:hover, #next-btn:hover {
+  color: #ff9900; /* Cor do botão ao passar o mouse */
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease; /* Animação suave ao mover as imagens */
+  width: 100%; /* Garante que o carrossel ocupe o espaço total */
+}
+
+.carousel a {
+  min-width: 100%; /* Exibe apenas uma imagem por vez */
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+
+
+.imagem-link {
+  pointer-events: none; /* Desativa cliques */
+}
+
+.imagem-link.clicavel {
+  pointer-events: auto; /* Reativa cliques apenas nesta classe */
+}
+
+
+#prev-btn:hover, #next-btn:hover {
+  color: #ff9900;
+}
+
+@media (max-width: 768px) {
+  .imagem h2 {
+    font-size: 26px;
+  }
+  .imagem p {
+    font-size: 18px;
+  }
+  .imagem button {
+    font-size: 18px;
+  }
+  .formulario p {
+    margin-bottom: 20px;
+  }
+}

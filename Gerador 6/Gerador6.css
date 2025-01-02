@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #00427a;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  flex-direction: column;
+}
+
+main {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.formulario {
+  background-color: white;
+  border-radius: 20px;
+  height: auto;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  width: 30%;
+}
+
+.A4 {
+  background-color: white;
+  border-radius: 20px;
+  height: auto;
+  min-height: 410px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  width: 70%;
+}
+
+.etiqueta-container {
+  width: 100%;
+  height: 100%; /* Garante que a etiqueta ocupe toda a folha */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Fundo branco para contraste */
+}
+
+.etiqueta-container svg {
+  width: 100%; /* Ocupa toda a largura da etiqueta */
+  height: 100%; /* Ocupa toda a altura da etiqueta */
+  object-fit: cover; /* Ajusta a escala sem distorção */
+}
+
+input {
+  margin: 10px 0;
+  height: 40px;
+  border-radius: 20px;
+  width: 100%;
+  border: 3px solid #00427a;
+  padding: 0 10px;
+}
+
+.enviar, #baixarPDF {
+  background-color: #00427a;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  text-align: center;
+  width: 400px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px auto; /* Centraliza o botão horizontalmente */
+}
+
+.enviar:hover {
+  transition: all .3s;
+  background-color: #0060FF;
+}
+
+text {
+  fill: black; /* Garante que o texto seja visível */
+  font-size: 24px; /* Ajuste conforme necessário */
+}
+
+
+.folha {
+  width: 100%;
+  height: 100%; /* Garante que a folha ocupe 100% da altura do contêiner pai */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.previewEtiquetaContainer {
+  width: 100%;
+}
+
+.previewEtiqueta label {
+  margin-bottom: 10px;
+}
+
+form {
+  text-align: center;
+  height: 100%;
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+}

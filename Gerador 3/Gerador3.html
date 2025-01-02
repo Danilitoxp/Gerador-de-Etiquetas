@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Etiquetas</title>
+    <link rel="stylesheet" href="./Gerador3.css" />
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="./Gerador3.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <a class="voltar" href="/index.html">
+        <button>Voltar</button>
+      </a>
+
+      <div class="container">
+        <section class="formulario">
+          <form action="">
+            <div class="descricao">
+              <label for="descricao">Coloque a Letra da Prateleira</label>
+              <select id="letraPrateleira">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="N">N</option>
+                <option value="O">O</option>
+                <option value="P">P</option>
+                <option value="Q">Q</option>
+                <option value="R">R</option>
+                <option value="S">S</option>
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="V">V</option>
+                <option value="W">W</option>
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+              </select>
+            </div>
+            <div class="previewEtiqueta">
+              <label for="previewEtiqueta">Preview da Etiqueta</label>
+              <div id="previewEtiquetaContainer" class="etiqueta-container">
+                <img
+                  id="previewEtiqueta"
+                  src="/assets/images/OPÇÕES 3/Prateleira.png"
+                  alt="Preview da Etiqueta"
+                />
+                <div id="descricaoEtiqueta" class="descricao-etiqueta">A</div>
+              </div>
+            </div>
+
+            <button class="enviar">Adicionar Etiqueta</button>
+          </form>
+        </section>
+
+        <section class="A4">
+          <div class="folha">
+            <div class="previewA4" id="previewA4">
+              <div id="etiqueta1" class="etiqueta-box"></div>
+              <div id="etiqueta2" class="etiqueta-box"></div>
+              <div id="etiqueta3" class="etiqueta-box"></div>
+              <div id="etiqueta4" class="etiqueta-box"></div>
+              <div id="etiqueta5" class="etiqueta-box"></div>
+              <div id="etiqueta6" class="etiqueta-box"></div>
+              <div id="etiqueta7" class="etiqueta-box"></div>
+              <div id="etiqueta8" class="etiqueta-box"></div>
+              <div id="etiqueta9" class="etiqueta-box"></div>
+              <div id="etiqueta10" class="etiqueta-box"></div>
+            </div>
+          </div>
+          <button id="baixarPDF">Baixar PDF</button>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </body>
+</html>

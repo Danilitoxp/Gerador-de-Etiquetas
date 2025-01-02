@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Etiquetas</title>
+    <link rel="stylesheet" href="Gerador6.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="Gerador6.js" defer></script>
+</head>
+<body>
+    <a class="voltar" href="/index.html">
+        <button>Voltar</button>
+    </a>
+    <main>
+        <div class="container">
+            <section class="formulario">
+                <form>
+                    <div class="descricao">
+                        <label for="descricao">Quantos textos?</label>
+                        <select id="textCount">
+                            <option value="1">1 Texto</option>
+                            <option value="2">2 Textos</option>
+                            <option value="3">3 Textos</option>
+                        </select>
+                        <div id="textInputsContainer"></div>
+                    </div>
+
+                    <div class="pasta">
+                        <label for="folderName">Nome da Pasta:</label>
+                        <input id="folderName" type="text" placeholder="Digite o nome da pasta">
+                    </div>
+
+                    <div class="previewEtiqueta">
+                        <label for="previewEtiqueta">Preview da Etiqueta</label>
+                        <div id="previewEtiquetaContainer" class="etiqueta-container"></div>
+                    </div>
+                    
+                    <button class="enviar" type="button">Adicionar Etiqueta</button>
+                </form>
+            </section>
+
+            <section class="A4">
+                <div class="folha" style="display: flex; flex-direction: column; align-items: center;">
+                    <!-- As etiquetas adicionadas aparecerão aqui -->
+                </div>
+                <button id="baixarPDF">Baixar Imagens</button>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
