@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const updatePreviewTexts = () => {
                 const count = parseInt(textCountSelect.value, 10);
-            
+
                 // Define posições específicas para cada cenário
                 const positionsByCount = {
                     1: [
@@ -58,47 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
                         { x: '50%', y: '80%' }  // Texto 3
                     ]
                 };
-            
+
                 const positions = positionsByCount[count] || [];
-                const maxLineLength = 20; // Número máximo de caracteres por linha
-            
+
                 for (let i = 1; i <= 3; i++) {
-                    const textElement = previewEtiquetaContainer.querySelector(`#texto${i}`);
+                    const textElement = previewEtiquetaContainer.querySelector(`#texto${i} tspan`);
                     const inputElement = document.getElementById(`descricao${i}`);
                     if (textElement) {
                         if (i <= count) {
-                            // Divide o texto em linhas
-                            const inputValue = inputElement ? inputElement.value : '';
-                            const lines = inputValue.match(new RegExp(`.{1,${maxLineLength}}`, 'g')) || [''];
-            
-                            // Remove tspan existente
-                            textElement.innerHTML = '';
-            
-                            // Calcula o deslocamento inicial para centralizar verticalmente
-                            const totalHeight = lines.length * 1.2; // Altura total das linhas (1.2em por linha)
-                            const initialOffset = -(totalHeight / 2) + 0.6; // Ajuste para começar no meio
-            
-                            lines.forEach((line, index) => {
-                                const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-                                tspan.textContent = line;
-                                tspan.setAttribute('x', positions[i - 1].x);
-                                tspan.setAttribute('dy', index === 0 ? `${initialOffset}em` : '1.2em'); // Espaçamento entre linhas
-                                textElement.appendChild(tspan);
-                            });
-            
-                            const parent = textElement;
-                            parent.setAttribute('text-anchor', 'middle');
-                            parent.setAttribute('dominant-baseline', 'middle');
+                            textElement.textContent = inputElement ? inputElement.value || `TEXTO ${i}` : '';
+                            const parent = textElement.parentElement;
                             parent.setAttribute('x', positions[i - 1].x); // Posição horizontal
                             parent.setAttribute('y', positions[i - 1].y); // Posição vertical
+                            parent.setAttribute('text-anchor', 'middle');
+                            parent.setAttribute('dominant-baseline', 'middle');
                         } else {
-                            textElement.innerHTML = '';
+                            textElement.textContent = '';
                         }
                     }
                 }
             };
-            
-            
 
             textInputsContainer.addEventListener('input', updatePreviewTexts);
             textCountSelect.addEventListener('change', updatePreviewTexts);
@@ -112,52 +91,34 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Erro ao carregar SVG:', error));
 
-        baixarPDFButton.addEventListener('click', () => {
-            const { jsPDF } = window.jspdf; // Importa jsPDF
-            const folderName = folderNameInput.value || 'minha_pasta';
-            const zip = new JSZip();
-        
-            html2canvas(folhaContainer, { scale: 2 }).then(canvas => {
-                const canvasWidth = canvas.width;
-                const canvasHeight = canvas.height;
-                const halfWidth = Math.floor(canvasWidth / 2);
-        
-                // Dividir o canvas em duas metades
-                const canvasLeft = document.createElement('canvas');
-                canvasLeft.width = halfWidth;
-                canvasLeft.height = canvasHeight;
-                const ctxLeft = canvasLeft.getContext('2d');
-                ctxLeft.drawImage(canvas, 0, 0, halfWidth, canvasHeight, 0, 0, halfWidth, canvasHeight);
-        
-                const canvasRight = document.createElement('canvas');
-                canvasRight.width = halfWidth;
-                canvasRight.height = canvasHeight;
-                const ctxRight = canvasRight.getContext('2d');
-                ctxRight.drawImage(canvas, halfWidth, 0, halfWidth, canvasHeight, 0, 0, halfWidth, canvasHeight);
-        
-                // Tamanho da página A4 em milímetros, modo paisagem
-                const pageWidth = 297; // Largura (horizontal)
-                const pageHeight = 210; // Altura (horizontal)
-        
-                // Gerar PDF para a metade esquerda
-                const pdfLeft = new jsPDF('landscape', 'mm', 'a4');
-                const imgDataLeft = canvasLeft.toDataURL('image/png');
-                pdfLeft.addImage(imgDataLeft, 'PNG', 0, 0, pageWidth, pageHeight); // Preenche a página inteira
-                const pdfLeftBlob = pdfLeft.output('blob');
-                zip.file('etiqueta_esquerda.pdf', pdfLeftBlob);
-        
-                // Gerar PDF para a metade direita
-                const pdfRight = new jsPDF('landscape', 'mm', 'a4');
-                const imgDataRight = canvasRight.toDataURL('image/png');
-                pdfRight.addImage(imgDataRight, 'PNG', 0, 0, pageWidth, pageHeight); // Preenche a página inteira
-                const pdfRightBlob = pdfRight.output('blob');
-                zip.file('etiqueta_direita.pdf', pdfRightBlob);
-        
-                // Gerar o ZIP e iniciar o download
-                zip.generateAsync({ type: 'blob' }).then(content => {
-                    saveAs(content, `${folderName}.zip`);
-                });
+    baixarPDFButton.addEventListener('click', () => {
+        const folderName = folderNameInput.value || 'minha_pasta';
+        const zip = new JSZip();
+
+        html2canvas(folhaContainer, { scale: 2 }).then(canvas => {
+            const canvasWidth = canvas.width;
+            const canvasHeight = canvas.height;
+            const halfWidth = Math.floor(canvasWidth / 2);
+
+            const canvas1 = document.createElement('canvas');
+            canvas1.width = halfWidth;
+            canvas1.height = canvasHeight;
+            const ctx1 = canvas1.getContext('2d');
+            ctx1.drawImage(canvas, 0, 0, halfWidth, canvasHeight, 0, 0, halfWidth, canvasHeight);
+            const img1 = canvas1.toDataURL('image/png');
+            zip.file(`etiqueta_parte_esquerda.png`, img1.split(',')[1], { base64: true });
+
+            const canvas2 = document.createElement('canvas');
+            canvas2.width = halfWidth;
+            canvas2.height = canvasHeight;
+            const ctx2 = canvas2.getContext('2d');
+            ctx2.drawImage(canvas, halfWidth, 0, halfWidth, canvasHeight, 0, 0, halfWidth, canvasHeight);
+            const img2 = canvas2.toDataURL('image/png');
+            zip.file(`etiqueta_parte_direita.png`, img2.split(',')[1], { base64: true });
+
+            zip.generateAsync({ type: 'blob' }).then(content => {
+                saveAs(content, `${folderName}.zip`);
             });
         });
-        
+    });
 });
