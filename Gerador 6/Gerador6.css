@@ -38,7 +38,7 @@ main {
   align-items: center;
   padding: 20px;
   flex-direction: column;
-  width: 30%;
+  width: auto;
 }
 
 .A4 {
@@ -91,7 +91,7 @@ input {
   margin: 10px 0;
   height: 40px;
   border-radius: 20px;
-  width: 80%;
+  width: 100%;
   border: 3px solid #00427a;
   padding: 0 10px;
 }
