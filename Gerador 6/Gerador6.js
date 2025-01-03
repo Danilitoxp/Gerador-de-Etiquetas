@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const updatePreviewTexts = () => {
                 const count = parseInt(textCountSelect.value, 10);
-
+            
                 // Define posições específicas para cada cenário
                 const positionsByCount = {
                     1: [
@@ -58,26 +58,47 @@ document.addEventListener('DOMContentLoaded', () => {
                         { x: '50%', y: '80%' }  // Texto 3
                     ]
                 };
-
+            
                 const positions = positionsByCount[count] || [];
-
+                const maxLineLength = 20; // Número máximo de caracteres por linha
+            
                 for (let i = 1; i <= 3; i++) {
-                    const textElement = previewEtiquetaContainer.querySelector(`#texto${i} tspan`);
+                    const textElement = previewEtiquetaContainer.querySelector(`#texto${i}`);
                     const inputElement = document.getElementById(`descricao${i}`);
                     if (textElement) {
                         if (i <= count) {
-                            textElement.textContent = inputElement ? inputElement.value || `TEXTO ${i}` : '';
-                            const parent = textElement.parentElement;
-                            parent.setAttribute('x', positions[i - 1].x); // Posição horizontal
-                            parent.setAttribute('y', positions[i - 1].y); // Posição vertical
+                            // Divide o texto em linhas
+                            const inputValue = inputElement ? inputElement.value : '';
+                            const lines = inputValue.match(new RegExp(`.{1,${maxLineLength}}`, 'g')) || [''];
+            
+                            // Remove tspan existente
+                            textElement.innerHTML = '';
+            
+                            // Calcula o deslocamento inicial para centralizar verticalmente
+                            const totalHeight = lines.length * 1.2; // Altura total das linhas (1.2em por linha)
+                            const initialOffset = -(totalHeight / 2) + 0.6; // Ajuste para começar no meio
+            
+                            lines.forEach((line, index) => {
+                                const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+                                tspan.textContent = line;
+                                tspan.setAttribute('x', positions[i - 1].x);
+                                tspan.setAttribute('dy', index === 0 ? `${initialOffset}em` : '1.2em'); // Espaçamento entre linhas
+                                textElement.appendChild(tspan);
+                            });
+            
+                            const parent = textElement;
                             parent.setAttribute('text-anchor', 'middle');
                             parent.setAttribute('dominant-baseline', 'middle');
+                            parent.setAttribute('x', positions[i - 1].x); // Posição horizontal
+                            parent.setAttribute('y', positions[i - 1].y); // Posição vertical
                         } else {
-                            textElement.textContent = '';
+                            textElement.innerHTML = '';
                         }
                     }
                 }
             };
+            
+            
 
             textInputsContainer.addEventListener('input', updatePreviewTexts);
             textCountSelect.addEventListener('change', updatePreviewTexts);
